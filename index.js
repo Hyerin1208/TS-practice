@@ -1,0 +1,12 @@
+"use strict";
+exports.__esModule = true;
+var TodoItem_1 = require("./TodoItem");
+var data_1 = require("./data");
+var TodoCollections_1 = require("./TodoCollections");
+var sampleTodos = data_1.data.map(function (item) { return new TodoItem_1["default"](item.id, item.task, item.complete); });
+var myTodoCollection = new TodoCollections_1["default"]("My Todo List", sampleTodos);
+myTodoCollection.addTodo("JavaScript 학습하기");
+myTodoCollection.addTodo("친구만나기");
+myTodoCollection.markComplete(3, true);
+console.log("" + myTodoCollection.userName);
+myTodoCollection.todoItems.forEach(function (item) { return item.printDetails(); });
