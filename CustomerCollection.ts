@@ -1,0 +1,24 @@
+import { Customer } from "./Customer";
+
+class CustomerCollection {
+  constructor(private data: Customer[]) {}
+
+  get length(): number {
+    return this.data.length;
+  }
+
+  compare(leftIndex: number, rightIndex: number): boolean {
+    return (
+      this.data[leftIndex].name.localeCompare(this.data[rightIndex].name) > 0
+    );
+  }
+
+  // 객체 위치를 바꾸는 swap 함수
+  swap(leftIndex: number, rightIndex: number): void {
+    const temp = this.data[leftIndex];
+    this.data[leftIndex] = this.data[rightIndex];
+    this.data[rightIndex] = temp;
+  }
+}
+
+export default CustomerCollection;
